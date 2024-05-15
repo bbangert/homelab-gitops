@@ -21,7 +21,7 @@ cniConfig:
 nodes:
   - hostname: "pmvm"
     ipAddress: "192.168.2.35"
-    installDisk: "/pci0000:00/0000:00:05.0/0000:01:01.0/virtio2/host2/target2:0:0/2:0:0:0/"
+    installDisk: "/dev/sda"
     talosImageURL: factory.talos.dev/installer/c38ec79c2adffd3f14899c479dd7f20ce6ea3881a13ee98ed1336072ecb033e7
     controlPlane: true
     networkInterfaces:
