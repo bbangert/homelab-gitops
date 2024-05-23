@@ -56,7 +56,7 @@ nodes:
         vip:
           ip: "192.168.2.45"
   - hostname: "talos2"
-    ipAddress: "192.168.2.37"
+    ipAddress: "192.168.2.38"
     installDisk: "/dev/sda"
     talosImageURL: factory.talos.dev/installer/c38ec79c2adffd3f14899c479dd7f20ce6ea3881a13ee98ed1336072ecb033e7
     controlPlane: true
@@ -65,7 +65,7 @@ nodes:
           hardwareAddr: "bc:24:11:e1:08:a0"
         dhcp: false
         addresses:
-          - "192.168.2.37/24"
+          - "192.168.2.38/24"
         routes:
           - network: 0.0.0.0/0
             gateway: "192.168.2.1"
