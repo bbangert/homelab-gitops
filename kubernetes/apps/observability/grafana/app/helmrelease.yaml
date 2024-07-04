@@ -118,6 +118,11 @@ spec:
           revision: 6
           datasource:
             - { name: DS_PROMETHEUS, value: Prometheus }
+        dragonfly:
+          # renovate: depName="Dragonfly"
+          gnetId: 10852
+          revision: 1
+          datasource: Prometheus
         external-dns:
           # renovate: depName="External-dns"
           gnetId: 15038
