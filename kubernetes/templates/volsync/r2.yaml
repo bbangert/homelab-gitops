@@ -34,6 +34,7 @@ spec:
   restic:
     repository: "${APP}-volsync"
     copyMethod: Direct
+    destinationPVC: "${CLAIM:-${APP}}"
     cacheAccessModes: ["${VOLSYNC_CACHE_ACCESSMODES:-ReadWriteOnce}"]
     cacheCapacity: "${VOLSYNC_CACHE_CAPACITY:-8Gi}"
     storageClassName: "${VOLSYNC_STORAGECLASS:-openebs-hostpath}"

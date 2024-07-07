@@ -5,10 +5,6 @@ metadata:
   name: "${CLAIM:-${APP}}"
 spec:
   accessModes: ["${VOLSYNC_ACCESSMODES:-ReadWriteOnce}"]
-  dataSourceRef:
-    kind: ReplicationDestination
-    apiGroup: volsync.backube
-    name: "${APP}-bootstrap"
   resources:
     requests:
       storage: "${VOLSYNC_CAPACITY}"
