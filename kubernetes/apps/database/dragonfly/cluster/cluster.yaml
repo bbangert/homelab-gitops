@@ -7,17 +7,6 @@ metadata:
 spec:
   image: ghcr.io/dragonflydb/dragonfly:v1.19.2@sha256:9cda51d2532a4b771010344f8410195f0fa45a3b6732dd47193de658e01d0b95
   replicas: 2 # set to the number of nodes in the cluster
-  affinity:
-    # affinity policy that ensures the pods are only specified on nodes that start with 'h4'
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-          - matchExpressions:
-              - key: kubernetes.io/hostname
-                operator: In
-                values:
-                  - h4uno
-                  - h4dos
   env:
     - name: MAX_MEMORY
       valueFrom:
