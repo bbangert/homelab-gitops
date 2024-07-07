@@ -34,10 +34,8 @@ spec:
   restic:
     repository: "${APP}-volsync"
     copyMethod: Snapshot
-    cacheStorageClassName: "${VOLSYNC_CACHE_SNAPSHOTCLASS:-openebs-hostpath}"
     cacheAccessModes: ["${VOLSYNC_CACHE_ACCESSMODES:-ReadWriteOnce}"]
     cacheCapacity: "${VOLSYNC_CACHE_CAPACITY:-4Gi}"
-    storageClassName: "${VOLSYNC_STORAGECLASS:-openebs-hostpath}"
     accessModes: ["${VOLSYNC_ACCESSMODES:-ReadWriteOnce}"]
     moverSecurityContext:
       runAsUser: 568
@@ -55,13 +53,11 @@ spec:
   trigger:
     schedule: "0 0 * * *"
   restic:
-    copyMethod: "${VOLSYNC_COPYMETHOD:-Snapshot}"
+    copyMethod: "${VOLSYNC_COPYMETHOD:-Direct}"
     pruneIntervalDays: 7
     repository: "${APP}-volsync"
     cacheCapacity: "${VOLSYNC_CACHE_CAPACITY:-4Gi}"
-    cacheStorageClassName: "${VOLSYNC_CACHE_SNAPSHOTCLASS:-openebs-hostpath}"
     cacheAccessModes: ["${VOLSYNC_CACHE_ACCESSMODES:-ReadWriteOnce}"]
-    storageClassName: "${VOLSYNC_STORAGECLASS:-openebs-hostpath}"
     accessModes: ["${VOLSYNC_ACCESSMODES:-ReadWriteOnce}"]
     moverSecurityContext:
       runAsUser: 568
