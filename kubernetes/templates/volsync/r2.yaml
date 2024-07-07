@@ -25,6 +25,28 @@ spec:
 ---
 # yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/volsync.backube/replicationsource_v1alpha1.json
 apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: "${APP}-bootstrap"
+spec:
+  trigger:
+    manual: restore-once
+  restic:
+    repository: "${APP}-volsync"
+    copyMethod: Snapshot
+    cacheStorageClassName: "${VOLSYNC_CACHE_SNAPSHOTCLASS:-openebs-hostpath}"
+    cacheAccessModes: ["${VOLSYNC_CACHE_ACCESSMODES:-ReadWriteOnce}"]
+    cacheCapacity: "${VOLSYNC_CACHE_CAPACITY:-4Gi}"
+    storageClassName: "${VOLSYNC_STORAGECLASS:-openebs-hostpath}"
+    accessModes: ["${VOLSYNC_ACCESSMODES:-ReadWriteOnce}"]
+    moverSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+    capacity: "${VOLSYNC_CAPACITY}"
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/volsync.backube/replicationsource_v1alpha1.json
+apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
   name: "${APP}-r2"
@@ -35,8 +57,7 @@ spec:
   restic:
     copyMethod: "${VOLSYNC_COPYMETHOD:-Snapshot}"
     pruneIntervalDays: 7
-    repository: "${APP}-volsync-r2-secret"
-    volumeSnapshotClassName: "${VOLSYNC_SNAPSHOTCLASS:-openebs-hostpath}"
+    repository: "${APP}-volsync"
     cacheCapacity: "${VOLSYNC_CACHE_CAPACITY:-4Gi}"
     cacheStorageClassName: "${VOLSYNC_CACHE_SNAPSHOTCLASS:-openebs-hostpath}"
     cacheAccessModes: ["${VOLSYNC_CACHE_ACCESSMODES:-ReadWriteOnce}"]
