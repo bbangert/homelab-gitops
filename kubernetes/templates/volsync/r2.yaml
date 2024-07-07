@@ -23,7 +23,7 @@ spec:
     - extract:
         key: volsync-r2-template
 ---
-# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/volsync.backube/replicationsource_v1alpha1.json
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/volsync.backube/replicationdestination_v1alpha1.json
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
@@ -34,34 +34,38 @@ spec:
   restic:
     repository: "${APP}-volsync"
     copyMethod: Snapshot
+    volumeSnapshotClassName: "${VOLSYNC_SNAPSHOTCLASS:-longhorn-snapclass}"
     cacheAccessModes: ["${VOLSYNC_CACHE_ACCESSMODES:-ReadWriteOnce}"]
-    cacheCapacity: "${VOLSYNC_CACHE_CAPACITY:-4Gi}"
+    cacheCapacity: "${VOLSYNC_CACHE_CAPACITY:-8Gi}"
+    storageClassName: "${VOLSYNC_STORAGECLASS:-longhorn-snapshot}"
     accessModes: ["${VOLSYNC_ACCESSMODES:-ReadWriteOnce}"]
     moverSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 568
+      runAsUser: "${VOLSYNC_UID:-568}"
+      runAsGroup: "${VOLSYNC_GID:-568}"
+      fsGroup: "${VOLSYNC_GID:-568}"
     capacity: "${VOLSYNC_CAPACITY}"
 ---
 # yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/volsync.backube/replicationsource_v1alpha1.json
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: "${APP}-r2"
+  name: "${APP}"
 spec:
-  sourcePVC: "${APP}"
+  sourcePVC: "${CLAIM:-${APP}}"
   trigger:
-    schedule: "0 0 * * *"
+    schedule: "0 1 * * *"
   restic:
-    copyMethod: "${VOLSYNC_COPYMETHOD:-Direct}"
-    pruneIntervalDays: 7
+    copyMethod: "${VOLSYNC_COPYMETHOD:-Snapshot}"
+    pruneIntervalDays: 10
     repository: "${APP}-volsync"
-    cacheCapacity: "${VOLSYNC_CACHE_CAPACITY:-4Gi}"
+    volumeSnapshotClassName: "${VOLSYNC_SNAPSHOTCLASS:-longhorn-snapclass}"
+    cacheCapacity: "${VOLSYNC_CACHE_CAPACITY:-8Gi}"
     cacheAccessModes: ["${VOLSYNC_CACHE_ACCESSMODES:-ReadWriteOnce}"]
+    storageClassName: "${VOLSYNC_STORAGECLASS:-longhorn-snapshot}"
     accessModes: ["${VOLSYNC_ACCESSMODES:-ReadWriteOnce}"]
     moverSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 568
+      runAsUser: "${VOLSYNC_UID:-568}"
+      runAsGroup: "${VOLSYNC_GID:-568}"
+      fsGroup: "${VOLSYNC_GID:-568}"
     retain:
       daily: 7
