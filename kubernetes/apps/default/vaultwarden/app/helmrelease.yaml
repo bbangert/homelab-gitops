@@ -51,7 +51,7 @@ spec:
               ATTACHMENTS_FOLDER: data/attachments
               DOMAIN: "https://vaultwarden.${SECRET_DOMAIN}"
               TZ: "${TIMEZONE}"
-              SIGNUPS_ALLOWED: "true"
+              SIGNUPS_ALLOWED: "false"
               WEBSOCKET_ENABLED: "true"
               WEBSOCKET_ADDRESS: 0.0.0.0
               WEBSOCKET_PORT: 3012
