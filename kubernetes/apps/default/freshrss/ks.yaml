@@ -17,8 +17,7 @@ spec:
     name: home-kubernetes
   dependsOn:
     - name: external-secrets-stores
-    - name: longhorn
-      namespace: storage
+    - name: cluster-apps-longhorn
   wait: false
   interval: 30m
   retryInterval: 1m
