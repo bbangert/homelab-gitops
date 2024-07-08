@@ -1,0 +1,10 @@
+machine:
+  kubelet:
+    extraMounts:
+      - destination: /var/longhorn
+        type: bind
+        source: /var/longhorn
+        options:
+          - bind
+          - rshared
+          - rw

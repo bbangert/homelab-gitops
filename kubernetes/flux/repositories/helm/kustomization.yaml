@@ -12,13 +12,13 @@ resources:
   - ./grafana.yaml
   - ./intel.yaml
   - ./jetstack.yaml
+  - ./longhorn.yaml
   - ./metrics-server.yaml
   - ./node-feature-discovery.yaml
   - ./openebs.yaml
   - ./piraeus.yaml
   - ./postfinance.yaml
   - ./prometheus-community.yaml
-  - ./rook-ceph.yaml
   - ./spegel.yaml
   - ./stakater.yaml
   - ./external-dns.yaml

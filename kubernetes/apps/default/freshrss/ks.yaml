@@ -17,7 +17,8 @@ spec:
     name: home-kubernetes
   dependsOn:
     - name: external-secrets-stores
-    - name: volsync
+    - name: longhorn
+      namespace: storage
   wait: false
   interval: 30m
   retryInterval: 1m
