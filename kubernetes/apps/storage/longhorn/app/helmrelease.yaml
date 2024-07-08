@@ -38,7 +38,7 @@ spec:
       defaultDataLocality: best-effort
       defaultReplicaCount: 3
       defaultDataPath: /var/longhorn
-      replicaAutoBalance: true
+      replicaAutoBalance: best-effort
       storageMinimalAvailablePercentage: 10
       storageReservedPercentageForDefaultDisk: 10
       defaultLonghornStaticStorageClass: longhorn
