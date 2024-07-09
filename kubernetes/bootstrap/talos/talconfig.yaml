@@ -95,7 +95,7 @@ patches:
     machine:
       network:
         nameservers:
-          - 192.168.168.1
+          - 192.168.2.1
   - "@./patches/global/cluster-discovery.yaml"
   - "@./patches/global/containerd.yaml"
   - "@./patches/global/disable-search-domain.yaml"
