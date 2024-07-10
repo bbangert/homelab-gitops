@@ -5,7 +5,7 @@ kind: Dragonfly
 metadata:
   name: dragonfly
 spec:
-  image: ghcr.io/dragonflydb/dragonfly:v1.19.1@sha256:ba8148dcbe993f936f14b0f64843ea2d5c030890a9b6780b19d8e5fe81378bd2
+  image: ghcr.io/dragonflydb/dragonfly:v1.20.1@sha256:096d995f1e9a043ea894c92ebd788645dfb80e492138f0f201add1f7d5a0a3e6
   replicas: 2 # set to the number of nodes in the cluster
   affinity:
     # affinity policy that ensures the pods are only specified on nodes that start with 'h4'
