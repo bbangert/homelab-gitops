@@ -8,4 +8,5 @@ resources:
   # Flux-Kustomizations
   - ./freshrss/ks.yaml
   - ./smtp-relay/ks.yaml
+  - ./unifi/ks.yaml
   - ./vaultwarden/ks.yaml
