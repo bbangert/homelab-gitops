@@ -6,6 +6,7 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
+  - ./atuin/ks.yaml
   - ./freshrss/ks.yaml
   - ./smtp-relay/ks.yaml
   - ./unifi/ks.yaml
