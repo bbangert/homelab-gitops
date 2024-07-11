@@ -12,6 +12,7 @@ resources:
   - ./grafana.yaml
   - ./intel.yaml
   - ./jetstack.yaml
+  - ./kubernetes-dashboard.yaml
   - ./longhorn.yaml
   - ./metrics-server.yaml
   - ./node-feature-discovery.yaml
