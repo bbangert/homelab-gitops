@@ -12,3 +12,16 @@ spec:
     - action: replace
       targetLabel: job
       replacement: *name
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/monitoring.coreos.com/scrapeconfig_v1alpha1.json
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: opnsense-nodeexporter
+spec:
+  staticConfigs:
+    - targets: [192.168.2.1:9100]
+  relabelings:
+    - action: replace
+      targetLabel: job
+      replacement: opnsense-nodeexporter
