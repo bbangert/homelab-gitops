@@ -25,3 +25,13 @@ spec:
     - action: replace
       targetLabel: job
       replacement: opnsense-nodeexporter
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/monitoring.coreos.com/scrapeconfig_v1alpha1.json
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: unifipoller
+spec:
+  scrapeInterval: 30s
+  staticConfigs:
+    - targets: [unifi-poller.observability.svc.cluster.local:9130]

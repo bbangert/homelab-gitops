@@ -183,6 +183,12 @@ spec:
           revision: 1
           datasource:
             - { name: DS_PROMETHEUS, value: Prometheus }
+        unifi-poller-uap-insights:
+          url: https://gist.githubusercontent.com/bbangert/260b4212ed01852a2a8660aa12422ffe/raw/6d81bdc41e437126abb19d9094bdaae11e3d5513/uap_insights.json
+          datasource: Prometheus
+        unifi-poller-client-insights:
+          url: https://gist.githubusercontent.com/bbangert/9ec26f84564da34cc8aca2baf4f3c296/raw/53c6b6df0e429cc89178305a4f5b7b7a8281527c/unifi_poller_client_insights.json
+          datasource: Prometheus
         unpackerr:
           # renovate: depName="Unpackerr"
           gnetId: 18817
