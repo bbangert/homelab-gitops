@@ -8,6 +8,7 @@ resources:
   # Flux-Kustomizations
   - ./atuin/ks.yaml
   - ./freshrss/ks.yaml
+  - ./plex/ks.yaml
   - ./smtp-relay/ks.yaml
   - ./unifi/ks.yaml
   - ./vaultwarden/ks.yaml
