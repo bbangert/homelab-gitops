@@ -10,4 +10,6 @@ parameters:
   staleReplicaTimeout: "480" # 8 hours in minutes
   dataLocality: "best-effort"
   replicaAutoBalance: "best-effort"
-  recurringJobSelector: [{"name": "daily-backup", "isGroup": true}]
+  recurringJobSelector:
+    enable: true
+    jobList: [{"name": "daily-backup", "isGroup": true}]
