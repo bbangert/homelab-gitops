@@ -27,11 +27,17 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
-  dependsOn:
-    - name: cluster-apps-longhorn
-      namespace: storage
   values:
     defaultPodOptions:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: In
+                    values:
+                      - 'h4dos'
       securityContext:
         runAsUser: 65534
         runAsGroup: 65534
