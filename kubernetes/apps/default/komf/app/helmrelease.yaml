@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: &app komga
+  name: &app komf
   namespace: default
 spec:
   interval: 30m
@@ -27,17 +27,24 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
+  dependsOn:
+    - name: komga
   values:
     controllers:
-      komga:
+      komf:
+        annotations:
+          reloader.stakater.com/auto: "true"
         containers:
           app:
             image:
-              repository: gotson/komga
-              tag: 1.11.1@sha256:a21459c33136d2d65336e15683e8dba8330dece8747036edaae02d6ebc0fabbe
+              repository: sndxr/komf
+              tag: 0.34.2@sha256:749770de08946e4fad63ced5e6a177261483cacb9a2dff6b5f25187a759d6897
             env:
-              TZ: "${TIMEZONE}"
-              SERVER_PORT: &port 8080
+              KOMF_KOMGA_BASE_URI: http://komga.default.svc.cluster.local:8080
+              KOMF_LOG_LEVEL: INFO
+            envFrom:
+              - secretRef:
+                  name: komf-secret
             resources:
               requests:
                 memory: 4282M
@@ -49,37 +56,18 @@ spec:
         controller: *app
         ports:
           http:
-            port: *port
-    ingress:
-      app:
-        enabled: true
-        className: internal
-        hosts:
-          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                service:
-                  identifier: app
-                  port: http
-        tls:
-          - hosts:
-              - *host
+            port: 8085
     persistence:
       config:
         enabled: true
-        existingClaim: komga-config
+        existingClaim: komf-config
         globalMounts:
           - path: /config
-      secret:
+      configmap:
         enabled: true
-        type: secret
-        name: komga-secret
+        type: configMap
+        name: komf-configmap
         globalMounts:
           - path: /config/application.yml
             readOnly: true
             subPath: application.yml
-      comics:
-        enabled: true
-        existingClaim: komga-assets
-        globalMounts:
-          - path: /mnt/storage/assets
