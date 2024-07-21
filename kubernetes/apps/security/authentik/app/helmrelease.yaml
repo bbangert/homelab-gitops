@@ -43,12 +43,21 @@ spec:
           enabled: true
       ingress:
         enabled: true
-        ingressClassName: internal
+        annotations:
+          external-dns/is-public: "true"
+          external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
+        ingressClassName: external
         hosts:
           - &host "auth.${SECRET_DOMAIN}"
-        paths:
-          - /
-        tls: [hosts: [*host]]
+        https: false
+      volumes:
+        - name: custom-assets
+          configMap:
+            name: authentik-theme
+      volumeMounts:
+        - name: custom-assets
+          mountPath: /web/dist/assets/images/groovie-melting.jpg
+          subPath: groovie-melting.jpg
     worker:
       replicas: 1
       resources:

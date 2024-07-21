@@ -5,3 +5,9 @@ kind: Kustomization
 resources:
   - ./externalsecret.yaml
   - ./helmrelease.yaml
+configMapGenerator:
+  - name: authentik-theme
+    options:
+      disableNameSuffixHash: true
+    files:
+      - assets/groovie-melting.jpg
