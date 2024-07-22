@@ -6,7 +6,7 @@ metadata:
   name: &app paste
   namespace: flux-system
 spec:
-  targetNamespace: default
+  targetNamespace: ofcode
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
