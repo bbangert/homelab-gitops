@@ -1,0 +1,61 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: duketogo
+spec:
+  chart:
+    spec:
+      chart: app-template
+      version: 3.2.1
+      interval: 30m
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  interval: 30m
+  values:
+    defaultPodOptions:
+      securityContext:
+        runAsUser: 65534
+        runAsGroup: 65534
+        fsGroup: 65534
+        fsGroupChangePolicy: OnRootMismatch
+    controllers:
+      duketogo:
+        annotations:
+          reloader.stakater.com/auto: "true"
+        containers:
+          app:
+            image:
+              repository: gcr.io/sigma-seer-289715/duketogo
+              tag: d04aba49fe1ea41825a03933aeeb233bc3af56fd
+            args:
+              - node
+              - ./dist/main.js
+            env:
+              - name: DEBUG
+                value: bot*
+              - name: megahal__brainFile
+                value: /data/megahal.brn
+              - name: megahal__maxInputTokens
+                value: '1000'
+              - name: megahal__maxOutputTokens
+                value: '1000'
+            envFrom: &envFrom
+              - secretRef:
+                  name: duketogo-secret
+            resources:
+              requests:
+                cpu: 130m
+                memory: 512Mi
+              limits:
+                cpu: 500m
+                memory: 2048Mi
+    persistence:
+      config:
+        enabled: true
+        existingClaim: duketogo-config
+        globalMounts:
+          - path: /data
