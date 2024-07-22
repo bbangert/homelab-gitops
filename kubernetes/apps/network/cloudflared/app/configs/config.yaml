@@ -7,4 +7,6 @@ ingress:
     service: https://ingress-nginx-external-controller.network.svc.cluster.local:443
   - hostname: "*.${SECRET_DOMAIN}"
     service: https://ingress-nginx-external-controller.network.svc.cluster.local:443
+  - hostname: "paste.ofcode.org"
+    service: http://paste.ofcode.svc.cluster.local:80
   - service: http_status:404
