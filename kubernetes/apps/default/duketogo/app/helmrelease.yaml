@@ -18,10 +18,12 @@ spec:
   values:
     defaultPodOptions:
       securityContext:
-        runAsUser: 1000
-        runAsGroup: 1000
-        fsGroup: 1000
-        fsGroupChangePolicy: OnRootMismatch
+        runAsUser: 65534
+        runAsGroup: 65534
+        fsGroup: 65534
+        fsGroupChangePolicy: "OnRootMismatch"
+        supplementalGroups:
+          - 1000
     controllers:
       duketogo:
         annotations:
