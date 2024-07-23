@@ -1,0 +1,111 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: &app roon
+spec:
+  chart:
+    spec:
+      chart: app-template
+      version: 3.2.1
+      interval: 30m
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  interval: 30m
+  values:
+    defaultPodOptions:
+      dnsPolicy: ClusterFirstWithHostNet
+      hostNetwork: true
+    controllers:
+      roon:
+        annotations:
+          reloader.stakater.com/auto: "true"
+        containers:
+          app:
+            image:
+              repository: steefdebruijn/docker-roonserver
+              tag: latest
+            securityContext:
+              privileged: true
+            env:
+              TZ: "${TIMEZONE}"
+            ports:
+              - containerPort: 9101
+                protocol: TCP
+              - containerPort: 9102
+                protocol: TCP
+              - containerPort: 9103
+                protocol: TCP
+              - containerPort: 9104
+                protocol: TCP
+              - containerPort: 9105
+                protocol: TCP
+              - containerPort: 9106
+                protocol: TCP
+              - containerPort: 9107
+                protocol: TCP
+              - containerPort: 9108
+                protocol: TCP
+              - containerPort: 9109
+                protocol: TCP
+              - containerPort: 9110
+                protocol: TCP
+              - containerPort: 9332
+                protocol: TCP
+              - containerPort: 9330
+                protocol: TCP
+              - containerPort: 9003
+                protocol: UDP
+            resources:
+              requests:
+                memory: 500Mi
+              limits:
+                memory: 2048Mi
+    service:
+      app:
+        controller: *app
+        type: LoadBalancer
+        annotations:
+          io.cilium/lb-ipam-ips: 192.168.2.204
+        ports:
+          http:
+            port: 9330
+            targetPort: 9330
+    ingress:
+      app:
+        enabled: true
+        className: internal
+        hosts:
+          - host: &host "roon.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                service:
+                  identifier: app
+                  port: 9330
+
+    persistence:
+      app:
+        enabled: true
+        existingClaim: roon-app
+        globalMounts:
+          - path: /app
+      data:
+        enabled: true
+        existingClaim: roon-data
+        globalMounts:
+          - path: /data
+      backup:
+        enabled: true
+        existingClaim: roon-backup
+        globalMounts:
+          - path: /backup
+      music:
+        enabled: true
+        existingClaim: media-music
+        globalMounts:
+          - path: /music
+            subPath: Lossless
+            readOnly: true

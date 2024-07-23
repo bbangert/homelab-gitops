@@ -1,0 +1,36 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: roon-app
+spec:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 10Gi
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: longhorn-reliable
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: roon-data
+spec:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 10Gi
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: longhorn-reliable
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: roon-backup
+spec:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 10Gi
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: longhorn-reliable
