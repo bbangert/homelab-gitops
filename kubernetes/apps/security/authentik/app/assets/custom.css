@@ -1,0 +1,5 @@
+div.pf-c-login__main {
+  opacity: 0.85;
+  box-shadow: -4px -4px 5px #555 inset;
+  border-radius: 3%;
+}

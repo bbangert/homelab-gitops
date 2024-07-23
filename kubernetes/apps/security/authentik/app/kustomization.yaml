@@ -10,4 +10,6 @@ configMapGenerator:
     options:
       disableNameSuffixHash: true
     files:
-      - assets/groovie-melting.jpg
+      - assets/groovie-melting.png
+      - assets/groovie-background.jpg
+      - assets/custom.css

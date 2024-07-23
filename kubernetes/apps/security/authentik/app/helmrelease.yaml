@@ -56,8 +56,14 @@ spec:
             name: authentik-theme
       volumeMounts:
         - name: custom-assets
-          mountPath: /web/dist/assets/images/groovie-melting.jpg
-          subPath: groovie-melting.jpg
+          mountPath: /web/dist/assets/images/groovie-melting.png
+          subPath: groovie-melting.png
+        - name: custom-assets
+          mountPath: /web/dist/assets/images/flow_background.jpg
+          subPath: groovie-background.jpg
+        - name: custom-assets
+          mountPath: /web/dist/custom.css
+          subPath: custom.css
     worker:
       replicas: 1
       resources:
