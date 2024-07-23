@@ -76,7 +76,7 @@ GitRepository :: home-ops-kubernetes
             Kustomization :: cluster-apps-authentik
                 DependsOn:
                     Kustomization :: cluster-apps-cloudnative-pg-cluster
-                HelmRelease :: authelia
+                HelmRelease :: authentik
             Kustomization :: cluster-apps-cloudnative-pg
                 HelmRelease :: cloudnative-pg
             Kustomization :: cluster-apps-cloudnative-pg-cluster
