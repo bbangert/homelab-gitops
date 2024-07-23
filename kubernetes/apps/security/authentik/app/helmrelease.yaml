@@ -49,7 +49,9 @@ spec:
         ingressClassName: external
         hosts:
           - &host "auth.${SECRET_DOMAIN}"
-        https: false
+        tls:
+          - hosts:
+              - *host
       volumes:
         - name: custom-assets
           configMap:
