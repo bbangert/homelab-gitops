@@ -24,7 +24,7 @@ nodes:
   - hostname: "talos1"
     ipAddress: "192.168.2.35"
     installDisk: "/dev/sda"
-    talosImageURL: factory.talos.dev/installer/c38ec79c2adffd3f14899c479dd7f20ce6ea3881a13ee98ed1336072ecb033e7
+    talosImageURL: factory.talos.dev/installer/22a73b21ea2e27057f17a22b56fdf89e09868979c10d22f10a9b7e9c1e988a60
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
@@ -41,7 +41,7 @@ nodes:
   - hostname: "h4uno"
     ipAddress: "192.168.2.36"
     installDisk: "/dev/nvme0n1"
-    talosImageURL: factory.talos.dev/installer/c38ec79c2adffd3f14899c479dd7f20ce6ea3881a13ee98ed1336072ecb033e7
+    talosImageURL: factory.talos.dev/installer/2dcd442954d67662d41c61bdb92165aaf7189aff9997bd011b6968c12ce8d9c0
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
@@ -58,7 +58,7 @@ nodes:
   - hostname: "h4dos"
     ipAddress: "192.168.2.39"
     installDisk: "/dev/nvme0n1"
-    talosImageURL: factory.talos.dev/installer/c38ec79c2adffd3f14899c479dd7f20ce6ea3881a13ee98ed1336072ecb033e7
+    talosImageURL: factory.talos.dev/installer/2dcd442954d67662d41c61bdb92165aaf7189aff9997bd011b6968c12ce8d9c0
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
@@ -75,7 +75,7 @@ nodes:
   - hostname: "talos2"
     ipAddress: "192.168.2.38"
     installDisk: "/dev/sda"
-    talosImageURL: factory.talos.dev/installer/c38ec79c2adffd3f14899c479dd7f20ce6ea3881a13ee98ed1336072ecb033e7
+    talosImageURL: factory.talos.dev/installer/22a73b21ea2e27057f17a22b56fdf89e09868979c10d22f10a9b7e9c1e988a60
     controlPlane: false
     networkInterfaces:
       - deviceSelector:
@@ -83,6 +83,21 @@ nodes:
         dhcp: false
         addresses:
           - "192.168.2.38/24"
+        routes:
+          - network: 0.0.0.0/0
+            gateway: "192.168.2.1"
+        mtu: 1500
+  - hostname: "beelink1"
+    ipAddress: "192.168.2.40"
+    installDisk: "/dev/sdb"
+    talosImageURL: factory.talos.dev/installer/2dcd442954d67662d41c61bdb92165aaf7189aff9997bd011b6968c12ce8d9c0
+    controlPlane: false
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "7c:83:34:b5:08:de"
+        dhcp: false
+        addresses:
+          - "192.168.2.40/24"
         routes:
           - network: 0.0.0.0/0
             gateway: "192.168.2.1"
@@ -112,4 +127,3 @@ controlPlane:
     - "@./patches/controller/disable-admission-controller.yaml"
     - "@./patches/controller/etcd.yaml"
     - "@./patches/controller/longhorn-local.yaml"
-
