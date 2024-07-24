@@ -10,6 +10,7 @@ resources:
   - ./calibre-web/ks.yaml
   - ./duketogo/ks.yaml
   - ./freshrss/ks.yaml
+  - ./frigate/ks.yaml
   - ./komf/ks.yaml
   - ./komga/ks.yaml
   - ./lidarr/ks.yaml
