@@ -3,6 +3,9 @@ mqtt:
   user: "{FRIGATE_MQTT_USERNAME}"
   password: "{FRIGATE_MQTT_PASSWORD}"
 
+database:
+  path: /data/frigate.db
+
 detectors:
   coral:
     type: edgetpu
