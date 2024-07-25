@@ -115,7 +115,9 @@ spec:
             readOnly: true
       media:
         enabled: true
-        existingClaim: frigate-media
+        accessMode: ReadWriteOnce
+        storageClass: openebs-hostpath
+        size: 100Gi
         globalMounts:
           - path: /media/frigate
       cache:
