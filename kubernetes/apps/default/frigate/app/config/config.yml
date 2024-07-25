@@ -25,11 +25,11 @@ snapshots:
 record:
   enabled: true
   retain:
-    days: 2
+    days: 0
     mode: all
   events:
     retain:
-      default: 2
+      default: 30
       mode: active_objects
 
 objects:
