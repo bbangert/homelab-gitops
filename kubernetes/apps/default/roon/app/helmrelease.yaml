@@ -19,6 +19,15 @@ spec:
     defaultPodOptions:
       dnsPolicy: ClusterFirstWithHostNet
       hostNetwork: true
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: In
+                    values:
+                      - "talos1"
     controllers:
       roon:
         annotations:
@@ -63,7 +72,7 @@ spec:
               requests:
                 memory: 500Mi
               limits:
-                memory: 2048Mi
+                memory: 8Gi
     service:
       app:
         controller: *app
