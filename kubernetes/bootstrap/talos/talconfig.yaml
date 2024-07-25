@@ -117,6 +117,7 @@ patches:
   - "@./patches/global/hostdns.yaml"
   - "@./patches/global/kubelet.yaml"
   - "@./patches/global/openebs-local.yaml"
+  - "@./patches/global/longhorn-local.yaml"
   - "@./patches/global/sysctl.yaml"
 
 # Controller patches
@@ -126,4 +127,3 @@ controlPlane:
     - "@./patches/controller/cluster.yaml"
     - "@./patches/controller/disable-admission-controller.yaml"
     - "@./patches/controller/etcd.yaml"
-    - "@./patches/controller/longhorn-local.yaml"
