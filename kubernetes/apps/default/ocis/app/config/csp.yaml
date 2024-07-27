@@ -4,7 +4,7 @@ directives:
   connect-src:
     - '''self'''
     # In contrary to bash and docker the default is given after the | character
-    - 'https://auth.${SECRET_DOMAIN|keycloak.owncloud.test}/'
+    - 'https://auth.${SECRET_DOMAIN}}/'
   default-src:
     - '''none'''
   font-src:

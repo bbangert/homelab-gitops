@@ -55,13 +55,11 @@ spec:
               OCIS_LOG_COLOR: true
               OCIS_LOG_LEVEL: info
               OCIS_LOG_PRETTY: true
-              # OCIS_URL: https://auth.${SECRET_DOMAIN}
-              PROXY_AUTOPROVISION_ACCOUNTS: true
-              PROXY_OIDC_REWRITE_WELLKNOWN: true
-              OCIS_EXCLUDE_RUN_SERVICES: "idp"
-              PROXY_CSP_CONFIG_FILE_LOCATION: /etc/ocis/csp.yaml
-              PROXY_USER_OIDC_CLAIM: "preferred_username"
-              PROXY_USER_CS3_CLAIM: "username"
+              OCIS_URL: https://files.${SECRET_DOMAIN}
+              # PROXY_AUTOPROVISION_ACCOUNTS: true
+              # PROXY_OIDC_REWRITE_WELLKNOWN: true
+              # OCIS_EXCLUDE_RUN_SERVICES: "idp"
+              # PROXY_CSP_CONFIG_FILE_LOCATION: /etc/ocis/csp.yaml
               PROXY_TLS: false
             envFrom:
               - secretRef:
@@ -76,7 +74,7 @@ spec:
                 cpu: 50m
                 memory: 128Mi
               limits:
-                memory: 512Mi
+                memory: 4Gi
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
