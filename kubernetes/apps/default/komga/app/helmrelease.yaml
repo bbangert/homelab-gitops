@@ -38,6 +38,7 @@ spec:
             env:
               TZ: "${TIMEZONE}"
               SERVER_PORT: &port 8080
+              KOMGA_OAUTH2_ACCOUNT_CREATION: "true"
             resources:
               requests:
                 memory: 4282M
@@ -53,7 +54,9 @@ spec:
     ingress:
       app:
         enabled: true
-        className: internal
+        className: external
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
         hosts:
           - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:
