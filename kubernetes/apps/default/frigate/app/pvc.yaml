@@ -1,4 +1,5 @@
 ---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/garethr/kubernetes-json-schema/master/v1.6.9-standalone-strict/persistentvolumeclaim.json
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -8,5 +9,4 @@ spec:
   resources:
     requests:
       storage: 100Gi
-  persistentVolumeReclaimPolicy: Retain
   storageClassName: longhorn
