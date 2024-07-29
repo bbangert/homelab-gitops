@@ -12,5 +12,6 @@ resources:
   - ./configmap.yaml
   - ./externalsecret.yaml
   - ./pvc.yaml
-  - ./server
+  - ./database
   - ./machine-learning
+  - ./server

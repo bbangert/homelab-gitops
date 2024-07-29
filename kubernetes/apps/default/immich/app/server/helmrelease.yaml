@@ -43,14 +43,6 @@ spec:
               labelSelector:
                 matchLabels:
                   app.kubernetes.io/name: immich-server
-        initContainers:
-          init-db:
-            image:
-              repository: ghcr.io/onedr0p/postgres-init
-              tag: 16
-            envFrom: &envFrom
-              - secretRef:
-                  name: immich-secret
         containers:
           app:
             image:
@@ -64,7 +56,7 @@ spec:
               # Ports
               SERVER_PORT: &port 3001
               # Database
-              DB_HOSTNAME: "postgres16-rw.database.svc.cluster.local"
+              DB_HOSTNAME: "immich-postgres16-rw.default.svc.cluster.local"
               DB_PORT: 5432
               DB_DATABASE_NAME: "immich"
             envFrom:
