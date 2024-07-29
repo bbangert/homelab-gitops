@@ -9,8 +9,8 @@ spec:
   imageName: ghcr.io/cloudnative-pg/postgresql:16.3-7
   primaryUpdateStrategy: unsupervised
   storage:
-    size: 20Gi
-    storageClass: openebs-hostpath
+    size: 50Gi
+    storageClass: longhorn-local
   superuserSecret:
     name: cloudnative-pg-secret
   enableSuperuserAccess: true
@@ -39,7 +39,7 @@ spec:
       destinationPath: s3://homestar-cloudnative-pg/
       # Note: serverName version needs to be inclemented
       # when recovering from an existing cnpg cluster
-      serverName: &currentCluster postgres16-v4
+      serverName: &currentCluster postgres16-v5
       s3Credentials:
         accessKeyId:
           name: cloudnative-pg-secret
@@ -51,7 +51,7 @@ spec:
   # cluster when recovering from an existing cnpg cluster
   bootstrap:
     recovery:
-      source: &previousCluster postgres16-v3
+      source: &previousCluster postgres16-v4
   # Note: externalClusters is needed when recovering from an existing cnpg cluster
   externalClusters:
     - name: *previousCluster
