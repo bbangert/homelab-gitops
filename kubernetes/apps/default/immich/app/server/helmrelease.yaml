@@ -64,7 +64,7 @@ spec:
               # Ports
               SERVER_PORT: &port 3001
               # Database
-              DB_HOSTNAME: "postgres16-rw.databases.svc.cluster.local"
+              DB_HOSTNAME: "postgres16-rw.database.svc.cluster.local"
               DB_PORT: 5432
               DB_DATABASE_NAME: "immich"
             envFrom:
