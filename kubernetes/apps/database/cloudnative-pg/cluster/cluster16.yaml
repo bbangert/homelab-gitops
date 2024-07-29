@@ -6,7 +6,7 @@ metadata:
   name: postgres16
 spec:
   instances: 3
-  imageName: ghcr.io/ahinko/postgres-extended:16.3.9
+  imageName: ghcr.io/cloudnative-pg/postgresql:16.3-7
   primaryUpdateStrategy: unsupervised
   storage:
     size: 50Gi
@@ -17,8 +17,6 @@ spec:
   postgresql:
     parameters:
       max_connections: "400"
-      shared_preload_libraries: "vectors.so"
-      search_path: '"$user", public, vectors"'
       shared_buffers: 256MB
   nodeMaintenanceWindow:
     inProgress: false
