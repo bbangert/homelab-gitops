@@ -24,7 +24,7 @@ spec:
           main:
             image:
               repository: bbangert/ofcode
-              tag: 0.3
+              tag: 0.4
             resources:
               limits:
                 cpu: 400m
