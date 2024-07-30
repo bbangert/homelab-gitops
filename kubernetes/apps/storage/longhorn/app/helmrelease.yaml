@@ -39,7 +39,7 @@ spec:
       defaultReplicaCount: 3
       defaultDataPath: /var/longhorn
       replicaAutoBalance: best-effort
-      storageMinimalAvailablePercentage: 10
+      storageMinimalAvailablePercentage: 1
       storageReservedPercentageForDefaultDisk: 10
       defaultLonghornStaticStorageClass: longhorn
       nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
