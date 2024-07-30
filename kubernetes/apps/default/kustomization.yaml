@@ -23,6 +23,7 @@ resources:
   - ./sabnzbd/ks.yaml
   - ./smtp-relay/ks.yaml
   - ./sonarr/ks.yaml
+  - ./thelounge/ks.yaml
   - ./unifi/ks.yaml
   - ./vaultwarden/ks.yaml
   - ./wallabag/ks.yaml
