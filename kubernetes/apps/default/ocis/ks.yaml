@@ -29,3 +29,5 @@ spec:
       VOLSYNC_STORAGECLASS: longhorn-reliable
       VOLSYNC_CLAIM: ocis-data
       VOLSYNC_CAPACITY: 100Gi
+      VOLSYNC_UID: "1000"
+      VOLSYNC_GID: "1000"
