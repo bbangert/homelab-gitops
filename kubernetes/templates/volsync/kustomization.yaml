@@ -7,4 +7,4 @@ resources:
   - ./claim.yaml
   - ./source.yaml
   # comment out destination.yaml once the cluster is restored
-  # - ./destination.yaml
+  #- ./destination.yaml
