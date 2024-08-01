@@ -7,5 +7,6 @@ resources:
   - ./externalsecret.yaml
   - ./helmrelease.yaml
   - ./pvc.yaml
+  - ../../../../templates/volsync
 generatorOptions:
   disableNameSuffixHash: true

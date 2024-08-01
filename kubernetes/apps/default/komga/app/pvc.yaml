@@ -9,14 +9,3 @@ spec:
     requests:
       storage: 2Gi
   storageClassName: longhorn-reliable
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: komga-assets
-spec:
-  accessModes: ["ReadWriteOnce"]
-  resources:
-    requests:
-      storage: 100Gi
-  storageClassName: longhorn
