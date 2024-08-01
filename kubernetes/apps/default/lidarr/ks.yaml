@@ -10,10 +10,10 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-
   dependsOn:
     - name: external-secrets-stores
     - name: cluster-apps-longhorn
+    - name: volsync
   path: ./kubernetes/apps/default/lidarr/app
   prune: true
   sourceRef:
@@ -26,3 +26,6 @@ spec:
   postBuild:
     substitute:
       APP: *app
+      VOLSYNC_CLAIM: lidarr-config
+      VOLSYNC_STORAGECLASS: longhorn-reliable
+      VOLSYNC_CAPACITY: 20Gi

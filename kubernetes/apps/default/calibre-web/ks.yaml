@@ -13,6 +13,7 @@ spec:
   dependsOn:
     - name: external-secrets-stores
     - name: cluster-apps-longhorn
+    - name: volsync
   path: ./kubernetes/apps/default/calibre-web/app
   prune: true
   sourceRef:
@@ -25,3 +26,8 @@ spec:
   postBuild:
     substitute:
       APP: *app
+      VOLSYNC_CLAIM: media-books
+      VOLSYNC_CAPACITY: 70Gi
+      VOLSYNC_ACCESSMODES: "ReadWriteMany"
+      VOLSYNC_UID: "2000"
+      VOLSYNC_GID: "2000"

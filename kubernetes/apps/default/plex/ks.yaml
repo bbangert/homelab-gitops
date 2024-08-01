@@ -20,6 +20,10 @@ spec:
   dependsOn:
     - name: cluster-apps-longhorn
     - name: external-secrets-stores
+    - name: volsync
   postBuild:
     substitute:
       APP: *appname
+      VOLSYNC_CLAIM: plex-config
+      VOLSYNC_UID: "65534"
+      VOLSYNC_GID: "65534"

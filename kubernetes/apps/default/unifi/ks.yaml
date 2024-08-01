@@ -12,6 +12,7 @@ spec:
       app.kubernetes.io/name: *app
   dependsOn:
     - name: cluster-apps-longhorn
+    - name: volsync
   path: ./kubernetes/apps/default/unifi/app
   prune: true
   sourceRef:

@@ -13,6 +13,7 @@ spec:
   dependsOn:
     - name: external-secrets-stores
     - name: cluster-apps-longhorn
+    - name: volsync
   path: ./kubernetes/apps/default/komga/app
   prune: true
   sourceRef:

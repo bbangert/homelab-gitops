@@ -13,6 +13,7 @@ spec:
   dependsOn:
     - name: external-secrets-stores
     - name: cluster-apps-longhorn
+    - name: volsync
   path: ./kubernetes/apps/default/sabnzbd/app
   prune: true
   sourceRef:
@@ -25,3 +26,6 @@ spec:
   postBuild:
     substitute:
       APP: *app
+      VOLSYNC_CLAIM: sabnzbd-config
+      VOLSYNC_STORAGECLASS: longhorn-reliable
+      VOLSYNC_CAPACITY: 2Gi

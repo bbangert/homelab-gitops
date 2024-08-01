@@ -31,14 +31,3 @@ spec:
     requests:
       storage: 50Gi
   storageClassName: longhorn
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: plex-config
-spec:
-  accessModes: ["ReadWriteOnce"]
-  resources:
-    requests:
-      storage: 50Gi
-  storageClassName: longhorn
