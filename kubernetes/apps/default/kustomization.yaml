@@ -27,3 +27,4 @@ resources:
   - ./unifi/ks.yaml
   - ./vaultwarden/ks.yaml
   - ./wallabag/ks.yaml
+  - ./windmill/ks.yaml
