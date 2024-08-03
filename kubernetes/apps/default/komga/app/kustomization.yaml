@@ -8,3 +8,5 @@ resources:
   - ./helmrelease.yaml
   - ./pvc.yaml
   - ../../../../templates/volsync
+generatorOptions:
+  disableNameSuffixHash: true
