@@ -188,16 +188,10 @@ spec:
         unifi-poller-client-insights:
           url: https://gist.githubusercontent.com/bbangert/9ec26f84564da34cc8aca2baf4f3c296/raw/53c6b6df0e429cc89178305a4f5b7b7a8281527c/unifi_poller_client_insights.json
           datasource: Prometheus
-        unpackerr:
-          # renovate: depName="Unpackerr"
-          gnetId: 18817
-          revision: 1
-          datasource:
-            - { name: DS_PROMETHEUS, value: Prometheus }
         volsync:
           # removate: depNmae="VolSync Dashboard"
           gnetId: 21356
-          revision: 1
+          revision: 3
           datasource:
             - { name: DS_PROMETHEUS, value: Prometheus }
             - { name: VAR_REPLICATIONDESTNAME, value: .*-bootstrap }
