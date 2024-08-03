@@ -12,5 +12,3 @@ configMapGenerator:
     files:
       - web.yaml=./config/web.yaml
       - csp.yaml=./config/csp.yaml
-generatorOptions:
-  disableNameSuffixHash: true
