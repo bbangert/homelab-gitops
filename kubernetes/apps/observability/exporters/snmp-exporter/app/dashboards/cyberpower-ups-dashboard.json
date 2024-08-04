@@ -441,7 +441,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "Prometheus"
+        "uid": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -511,7 +511,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "upsAdvanceBatteryTemperature{instance=\"$instance\"}",
+          "expr": "upsTemperature{instance=\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "range": true,
@@ -1232,6 +1232,6 @@
   "timezone": "",
   "title": "CyberPower UPS",
   "uid": "edtr48r3fj2tca",
-  "version": 2,
+  "version": 3,
   "weekStart": ""
 }
