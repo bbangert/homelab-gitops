@@ -76,6 +76,10 @@ spec:
                 memory: 250Mi
               limits:
                 memory: 2000Mi
+          rsync:
+            image:
+              repository: toelke158/docker-rsync
+              tag: latest
     service:
       app:
         controller: *app
