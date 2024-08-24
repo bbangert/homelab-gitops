@@ -15,6 +15,7 @@ resources:
   - ./komga/ks.yaml
   - ./immich/ks.yaml
   - ./lidarr/ks.yaml
+  - ./linkwarden/ks.yaml
   - ./ocis/ks.yaml
   - ./plex/ks.yaml
   - ./prowlarr/ks.yaml
