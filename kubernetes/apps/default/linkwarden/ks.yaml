@@ -21,8 +21,9 @@ spec:
     - name: cluster-apps-longhorn
     - name: external-secrets-stores
     - name: volsync
+    - name: cloudnative-pg
   postBuild:
     substitute:
       APP: *app
-      VOLSYNC_CAPACITY: 5Gi
+      VOLSYNC_CAPACITY: 30Gi
       VOLSYNC_STORAGECLASS: longhorn-reliable

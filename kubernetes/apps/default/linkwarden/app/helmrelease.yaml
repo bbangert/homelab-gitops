@@ -45,7 +45,7 @@ spec:
               NEXT_PUBLIC_DISABLE_REGISTRATION: "true"
               NEXT_PUBLIC_CREDENTIALS_ENABLED: "false"
               DISABLE_NEW_SSO_USERS: "false"
-              NEXTAUTH_URL: "https://{{ .Release.Name }}.${SECRET_DOMAIN}/api/v1/auth"
+              NEXTAUTH_URL: "https://link.${SECRET_DOMAIN}/api/v1/auth"
               STORAGE_FOLDER: "config" # Will always end up as /data/STOREAGE_FOLDER so eg /data/config
               HOME: /data/config
             envFrom: *envFrom
@@ -67,9 +67,11 @@ spec:
     ingress:
       app:
         enabled: true
-        className: internal
+        className: external
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
         hosts:
-          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
+          - host: &host "link.${SECRET_DOMAIN}"
             paths:
               - path: /
                 service:
