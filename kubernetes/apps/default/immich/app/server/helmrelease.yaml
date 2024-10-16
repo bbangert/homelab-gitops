@@ -54,7 +54,7 @@ spec:
               LOG_LEVEL: verbose
               IMMICH_MEDIA_LOCATION: &mediaLocation /usr/src/app/upload
               # Ports
-              SERVER_PORT: &port 3001
+              SERVER_PORT: &port 2283
               # Database
               DB_HOSTNAME: "immich-postgres16-rw.default.svc.cluster.local"
               DB_PORT: 5432
@@ -78,8 +78,8 @@ spec:
                 custom: true
                 spec:
                   httpGet:
-                    path: /api/server-info/ping
-                    port: 3001
+                    path: /api/server/ping
+                    port: *port
                   initialDelaySeconds: 0
                   periodSeconds: 10
                   timeoutSeconds: 1
@@ -90,8 +90,8 @@ spec:
                 custom: true
                 spec:
                   httpGet:
-                    path: /api/server-info/ping
-                    port: 3001
+                    path: /api/server/ping
+                    port: *port
                   failureThreshold: 30
                   periodSeconds: 5
                   successThreshold: 1
