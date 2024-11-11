@@ -86,6 +86,9 @@ spec:
           rtsp:
             enabled: true
             port: 8554
+          rtsps:
+            enabled: true
+            port: 8555
     ingress:
       app:
         enabled: true

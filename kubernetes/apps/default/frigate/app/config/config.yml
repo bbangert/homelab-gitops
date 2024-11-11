@@ -39,7 +39,9 @@ go2rtc:
   streams:
     porch_lq:
       - rtsp://192.168.2.31:554/s2
-      - "ffmpeg:porch_lq#video=h264#audio=aac"
+  webrtc:
+    candidates:
+      - 192.168.2.205:8555
 
 cameras:
   garage_camera:
@@ -47,7 +49,7 @@ cameras:
       inputs:
         - path: rtsp://{FRIGATE_CAMERA_USER}:{FRIGATE_CAMERA_PASSWORD}@192.168.2.138:554/h264Preview_01_main
           roles:
-            - rtmp
+            - record
         - path: rtsp://{FRIGATE_CAMERA_USER}:{FRIGATE_CAMERA_PASSWORD}@192.168.2.138:554/h264Preview_01_sub
           roles:
             - detect
@@ -67,8 +69,7 @@ cameras:
       output_args:
         record: preset-record-generic-audio-copy
       inputs:
-        - path: rtsp://localhost:8554/porch_lq
-          input_args: preset-rtsp-restream
+        - path: rtsp://192.168.2.31:554/s0
           roles:
             - record
         - path: rtsp://localhost:8554/porch_lq
@@ -90,3 +91,5 @@ cameras:
         person:
           mask:
             - 165,576,169,0,827,0,832,105,279,169,274,250,326,265,343,293,362,329,454,576
+    live:
+      stream_name: porh_hq
