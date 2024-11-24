@@ -16,6 +16,7 @@ resources:
   - ./immich/ks.yaml
   - ./lidarr/ks.yaml
   - ./linkwarden/ks.yaml
+  - ./music-assistant/ks.yaml
   - ./ocis/ks.yaml
   - ./plex/ks.yaml
   - ./prowlarr/ks.yaml
