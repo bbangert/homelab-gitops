@@ -23,7 +23,5 @@ spec:
   postBuild:
     substitute:
       APP: *app
-      APP_UID: "1000"
-      APP_GID: "1000"
       VOLSYNC_CLAIM: music-assistant-config
       VOLSYNC_STORAGECLASS: longhorn-reliable
