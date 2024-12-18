@@ -42,6 +42,7 @@ go2rtc:
   webrtc:
     candidates:
       - 192.168.2.205:8555
+      - stun:8555
 
 cameras:
   garage_camera:
