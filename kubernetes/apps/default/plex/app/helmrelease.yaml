@@ -47,7 +47,7 @@ spec:
           app:
             image:
               repository: ghcr.io/onedr0p/plex
-              tag: 1.40.4.8679-424562606@sha256:6caeca24f3b08206a94a6a9c102e2c0c14d46d5a9163241716559e8c83f53ff8
+              tag: 1.41.4.9463-630c9f557@sha256:a0dbab7e3f4ad3269ea1dfc502e6f5af73f7c89ed98fff093e5dab048d0d30e0
             env:
               TZ: America/Los_Angeles
               PLEX_ADVERTISE_URL: https://192.168.2.203:32400,https://plex.${SECRET_DOMAIN}:443
