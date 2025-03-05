@@ -21,7 +21,6 @@ resources:
   - ./plex/ks.yaml
   - ./prowlarr/ks.yaml
   - ./radarr/ks.yaml
-  - ./roon/ks.yaml
   - ./sabnzbd/ks.yaml
   - ./smtp-relay/ks.yaml
   - ./sonarr/ks.yaml
