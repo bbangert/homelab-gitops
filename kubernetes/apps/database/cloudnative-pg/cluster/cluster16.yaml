@@ -9,7 +9,7 @@ spec:
   imageName: ghcr.io/cloudnative-pg/postgresql:16.3-7
   primaryUpdateStrategy: unsupervised
   storage:
-    size: 50Gi
+    size: 80Gi
     storageClass: longhorn-local
   superuserSecret:
     name: cloudnative-pg-secret
@@ -29,7 +29,7 @@ spec:
   monitoring:
     enablePodMonitor: true
   backup:
-    retentionPolicy: 30d
+    retentionPolicy: 15d
     barmanObjectStore: &barmanObjectStore
       data:
         compression: bzip2
