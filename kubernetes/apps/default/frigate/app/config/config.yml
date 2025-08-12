@@ -97,7 +97,5 @@ cameras:
       fps: 5
       stationary:
         interval: 5
-    motion:
-    objects:
     live:
       stream_name: doorbell_hq
