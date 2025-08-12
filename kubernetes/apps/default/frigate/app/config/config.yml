@@ -36,13 +36,16 @@ objects:
   track: [person]
 
 go2rtc:
+  rtsp:
+    username: "{FRIGATE_REO_USERNAME}"
+    password: "{FRIGATE_REO_PASSWORD}"
   streams:
     porch_lq:
       - rtsp://192.168.2.31:554/s2
     doorbell_hq:
-      - "rtsp://{REO_USERNAME}:{REO_PASSWORD}@192.168.2.152:554/h264Preview_01_main"
+      - rtsp://@192.168.2.152:554/h264Preview_01_main
     doorbell:lq:
-      - "rtsp://{REO_USERNAME}:{REO_PASSWORD}@192.168.2.152:554/h264Preview_01_sub"
+      - rtsp://@192.168.2.152:554/h264Preview_01_sub
   webrtc:
     candidates:
       - 192.168.2.205:8555
