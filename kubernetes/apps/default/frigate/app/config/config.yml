@@ -40,9 +40,9 @@ go2rtc:
     porch_lq:
       - rtsp://192.168.2.31:554/s2
     doorbell_hq:
-      - rtsp://{FRIGATE_REO_USERNAME}:{FRIGATE_REO_PASSWORD}@192.168.2.152:554/h264Preview_01_main
+      - "ffmpeg:http://192.168.2.152/flv?port=1935&app=bcs&stream=channel0_main.bcs&user={FRIGATE_REO_USERNAME}&password={FRIGATE_REO_PASSWORD}"
     doorbell_lq:
-      - rtsp://{FRIGATE_REO_USERNAME}:{FRIGATE_REO_PASSWORD}@192.168.2.152:554/h264Preview_01_sub
+      - "ffmpeg:http://192.168.2.152/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user={FRIGATE_REO_USERNAME}&password={FRIGATE_REO_PASSWORD}"
   webrtc:
     candidates:
       - 192.168.2.205:8555
