@@ -41,7 +41,7 @@ go2rtc:
       - rtsp://192.168.2.31:554/s2
     doorbell_hq:
       - rtsp://{FRIGATE_REO_USERNAME}:{FRIGATE_REO_PASSWORD}@192.168.2.152:554/h264Preview_01_main
-    doorbell:lq:
+    doorbell_lq:
       - rtsp://{FRIGATE_REO_USERNAME}:{FRIGATE_REO_PASSWORD}@192.168.2.152:554/h264Preview_01_sub
   webrtc:
     candidates:
