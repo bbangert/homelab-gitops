@@ -39,7 +39,7 @@ spec:
           app:
             image:
               repository: ghcr.io/linkwarden/linkwarden
-              tag: v2.13.3
+              tag: v2.13.4
             env:
               NEXT_PUBLIC_AUTHENTIK_ENABLED: "true"
               NEXT_PUBLIC_DISABLE_REGISTRATION: "true"
